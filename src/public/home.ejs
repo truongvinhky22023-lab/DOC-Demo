@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="IpPlY8UN6Q51F0VMTZ6g02yIgXNuul0bOYUUNeCH">
+    <link rel="icon" type="image/x-icon" href="/images/Logo_DOC.png">
+    <title>Trang Chủ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=BBH+Sans+Bogle&family=Lilita+One&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/home.css">
+    <link rel="stylesheet" href="stylesheets/hr_employees.css">
+    <link rel="stylesheet" href="stylesheets/navbar.css">
+    <link rel="stylesheet" href="stylesheets/nav_marquee_1.css">
+    <link rel="stylesheet" href="stylesheets/style_update_22012026_185000.css">
+    <link rel="stylesheet" href="stylesheets/home_v1_27_12_25.css">
+    <link rel="stylesheet" href="stylesheets/css/hr_employees.css">
+    <link rel="stylesheet" href="stylesheets/navbar_update_22012026_184700.css"> 
+</head>
+
+<body>
+    <div id="petals-container"></div>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center pt-2 pb-2">
+                <div class="nav-logo">
+                    <h5 class="lilita-one-regular" style="font-size: 1.5rem;">
+                        <i class="fa-solid fa-dragon me-2"></i>BLAINE COUNTY STATE PENITENTIARY AUTHORITY
+                    </h5>
+                </div>
+                
+                <div class="user-info d-flex align-items-center gap-3">
+                    <span style="font-size: 1.1rem;">
+                        <a href="/profile" style="color: var(--tet-light-gold); text-decoration: none; font-weight: 700;">
+                            <%= position %>
+                            <strong style="text-shadow: 0 0 5px rgba(255,230,167,0.5);"><%= displayName %></strong>
+                        </a>
+                    </span>
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-link p-0 dropdown-toggle" 
+                                type="button" 
+                                id="userDropdown"
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false"
+                                style="border: none;">
+                            <img src="<%= avatar %>" 
+                                 alt="Avatar"
+                                 class="rounded-circle"
+                                 style="border: 3px solid var(--tet-light-gold); box-shadow: 0 0 10px rgba(217, 192, 119, 0.5);"
+                                 width="50" height="50"
+                                 onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=<%= displayName %>&background=d9c077&color=ffffff';">
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li>
+                                <a class="dropdown-item text-primary" href="/profile">
+                                    <i class="fas fa-info-circle me-2"></i>Hồ sơ
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-danger" href="#" 
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Đăng xuất
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="marquee-wrap" role="region" aria-label="Thông báo">
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <i class="fa-solid fa-coins"></i> Nhằm quản lý hoạt động On Duty của các bạn, mọi người vui lòng vào Chấm Công để On Duty và đến khi Off Duty
+                    &nbsp;&nbsp;-&nbsp;&nbsp;
+                    Mọi Bug, Lag, ... thắc mắc vui lòng liên hệ Quản Lý trên Discord PA để được hỗ trợ nhanh nhất!
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center logo_lssd" href="/home">
+                <img src="/images/Logo_DOC.png" alt="Logo" height="55" class="me-3" style="filter: drop-shadow(0 0 3px var(--tet-light-gold));">
+            </a>
+
+            <button class="navbar-toggler bg-warning" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link px-3 py-2 rounded-pill" style="background: rgba(255,255,255,0.1);" href="/home">
+                            <i class="fa-solid fa-house me-1"></i> Trang Chủ
+                        </a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link px-3 py-2 rounded-pill" style="background: rgba(255,255,255,0.1);" href="/attendance">
+                            <i class="fa-solid fa-clock me-1"></i> Chấm Công
+                        </a>
+                    </li>
+
+                    <% if (role === 'admin') { %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle px-3 py-2 rounded-pill" 
+                           href="#" 
+                           id="adminDropdown"
+                           role="button"
+                           data-bs-toggle="dropdown" 
+                           aria-expanded="false">
+                            <i class="fa-solid fa-cog me-1"></i> Quản Lý
+                        </a>
+                        <ul class="dropdown-menu p-2 shadow" aria-labelledby="adminDropdown" style="min-width: 220px;">
+                            <li><a class="dropdown-item" href="/admin"><i class="fa-solid fa-users me-2"></i> Nhân Sự</a></li>
+                            <li><a class="dropdown-item" href="/admin-panel"><i class="fa-solid fa-sack-dollar me-2"></i> Công / Lương</a></li>
+                            <li><a class="dropdown-item" href="/admin-viewonduty"><i class="fa-solid fa-eye me-2"></i> On Duty - Trực Tiếp</a></li>
+                        </ul>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="loadingOverlay" class="loader-overlay" style="display: none;">
+        <div class="lssd-loader-content" style="border-color: var(--tet-sand-gold);">
+            <div class="lssd-badge" style="background: var(--tet-sand-gold);">
+                <div class="star" style="border-bottom-color: var(--tet-sand-gold);"></div>
+                <div class="text"></div>
+            </div>
+            <div class="loading-text" style="color: var(--tet-sand-gold); font-weight: bold;">Đang tải dữ liệu Xuân...</div>
+            <div class="loader-clock" style="border-color: var(--tet-sand-gold);">
+                <span class="hour" style="background: var(--tet-dark-sand);"></span>
+                <span class="min" style="background: var(--tet-dark-sand);"></span>
+                <span class="circel" style="background: var(--tet-dark-sand);"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row group_home_01 mt-5 align-items-stretch">
+            <div class="col-lg-8 mb-3">
+                <div class="box_display_home table-responsive card_table_employees">
+                    <h4 class="border-bottom-h4-home"><strong>Thành Viên LLCS DOC</strong></h4>
+                    <table class="table table-sm text-center table_employees table-hover">
+                        <thead>
+                            <tr class="head-table-employees-home">
+                                <th>STT</th>
+                                <th>AVT</th>
+                                <th>Tên Sĩ Quan</th>
+                                <th>Chức Vụ</th>
+                                <th>Quân Hàm</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% users.forEach((u, index) => { %>
+                            <tr>
+                                <td class="py-3"><%= (currentPage - 1) * 5 + index + 1 %></td>
+                                <td>
+                                    <img src="<%= u.avatar %>" alt="Avatar" class="rounded-circle p-1" width="48" height="48"
+                                        style="border: 2px solid var(--tet-sand-gold);"
+                                        onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=<%= u.displayName %>&background=random';">
+                                </td>
+                                <td class="  style="font-size: 1.1rem;"><%= u.displayName %></td>
+                                <td><span class="text;"><%= u.rank %></span></td>
+                                <td><span class="text;"><%= u.position %></span></td>
+                            </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-center mt-3 phan_trang">
+                        <nav>
+                            <ul class="pagination">
+                                <% if (currentPage > 1) { %>
+                                <li class="page-item">
+                                    <a class="page-link" href="?page=<%= currentPage - 1 %>" aria-label="Previous">&lsaquo;</a>
+                                </li>
+                                <% } %>
+                                <% for (let i = 1; i <= totalPages; i++) { %>
+                                <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                                    <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+                                </li>
+                                <% } %>
+                                <% if (currentPage < totalPages) { %>
+                                <li class="page-item">
+                                    <a class="page-link" href="?page=<%= currentPage + 1 %>" aria-label="Next">&rsaquo;</a>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="box_display_home card_right_top">
+                    <div class="row d-flex text-center align-items-center">
+                        <div class="col-md-6 mb-2">
+                            <div class="info-box">
+                                <strong><i class="fa-solid fa-users"></i> TV DOC: <%= totalMembers %></strong>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="info-box">
+                                <strong><i class="fa-solid fa-crown"></i> TV cấp cao: <%= highLevelMembers %></strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <strong>
+                            <p>Chào mừng bạn đến với trang chủ của LLCS DOC!</p>
+                            <p>Xem các thông tin và cập nhật mới nhất trên Discord DOC.</p>
+                            <p>Chúc bạn một ngày làm việc đầy vui vẻ.</p>
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container od-top-1-container mt-5">
+        <h4 class="lssd-control-btn width-fit-ctn ms-5">Tính Năng</h4>
+        <div class="row">
+            <div class="col-lg-3">
+                <a class="card lssd container mt-5 mb-5" href="/attendance" target="_blank">
+                    <div class="overlay"></div>
+                    <div class="circle">
+                        <img class="mb-2" src="/images/Logo_DOC.png" alt="" width="100" height="100">
+                    </div>
+                    <p><b>Chấm Công</b></p>
+                </a>
+            </div>
+            <div class="col-lg-3">
+                <a class="card lssd container mt-5 mb-5" href="https://sites.google.com/view/info-gta5vn/b%E1%BB%99-lu%E1%BA%ADt-blaine-county?authuser=0"_blank">
+                    <div class="overlay"></div>
+                    <div class="circle">
+                        <img class="mb-2" src="/images/Logo_DOC.png" alt="" width="100" height="100">
+                    </div>
+                    <p><b>Bộ Luật Liên Bang</b></p>
+                </a>
+            </div>
+
+            <div class="label-center ms-5 mt-5">
+                <h4>Khác</h4>
+            </div>
+            
+                <div class="col-lg-3">
+                    <a class="card lssd container mt-5 mb-5 card-img">
+                        <img src="/images/quydinhnhatu.png" class="img-thumbnail" data-bs-toggle="modal"
+                            data-bs-target="#imageModal" onclick="changeImage(this)" style="object-fit: cover;">
+                        <p class="text-dark"><b>Quy Định Nhà tù</b></p>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="card lssd container mt-5 mb-5 card-img">
+                        <img src="/images/code bk.png" class="img-thumbnail"
+                            data-bs-toggle="modal" data-bs-target="#imageModal" onclick="changeImage(this)" style="object-fit: cover;">
+                        <p class="text-dark"><b>Các Code BK</b></p>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="card lssd container mt-5 mb-5 card-img">
+                        <img src="/images/quy tac xung ho.png" class="img-thumbnail" data-bs-toggle="modal"
+                            data-bs-target="#imageModal" onclick="changeImage(this)" style="object-fit: cover;">
+                        <p class="text-dark"><b>Quy Tắc Xưng Hô</b></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    <!-- Modal hiển thị ảnh -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img id="modalImg" src="" class="img-fluid" style="max-height: 80vh; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications -->
+    <div class="notifications">
+        <span id="session-success" data-message=""></span>
+        <span id="session-warning" data-message=""></span>
+        <span id="session-info" data-message=""></span>
+        <span id="session-error" data-message=""></span>
+    </div>
+
+    <div class="container">
+        <footer class="d-flex flex-column flex-lg-row justify-content-between align-items-start py-3 my-4 border-top">
+            <div class="mb-3 mb-lg-0">
+                <span class="text-body-secondary">
+                    © 2025 Designed and developed by <a href="" target="_blank">@ricefyth</a> - version 0.1
+                </span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function changeImage(img) {
+            document.getElementById("modalImg").src = img.src;
+        }
+
+        // Firework effect
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            const colors = ['#ffdd00', '#00eaff', '#ffffff', '#ff8a00'];
+            firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            firework.style.left = Math.random() * 100 + 'vw';
+            firework.style.top = Math.random() * 100 + 'vh';
+            firework.style.setProperty('--x', (Math.random() - 0.5) * 300 + 'px');
+            firework.style.setProperty('--y', (Math.random() - 0.5) * 300 + 'px');
+            document.body.appendChild(firework);
+            setTimeout(() => firework.remove(), 1000);
+        }
+
+        for (let i = 0; i < 15; i++) setTimeout(createFirework, i * 150);
+        document.addEventListener("click", createFirework);
+        setInterval(createFirework, 3000);
+    </script>
+
+    <style>
+        .contact_admin { gap: 30px; }
+        .custom_icon {
+            position: relative;
+            font-size: 30px;
+            color: #1f2328;
+        }
+        .custom_icon:hover { color: #e8a800; }
+    </style>
+</body>
+</html>

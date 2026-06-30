@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "pain",
+      "password": "123",
+      "role": "admin",
+      "displayName": "Im Painn",
+      "position": "Thiếu tá",
+      "rank": "Giám đốc",
+      "avatar": "",
+      "salaryRate": 20000,
+      "careerTotal": 0,
+      "attendance": [],
+      "monthlyHistory": []
+    }
+  ],
+  "logs": [],
+  "trash": []
+}

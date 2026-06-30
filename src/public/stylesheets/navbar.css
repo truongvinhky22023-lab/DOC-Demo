@@ -1,0 +1,260 @@
+:root {
+    --primary-color: #2c3e50; /* Giữ nguyên primary (xanh dương đậm) */
+    --secondary-color: #1e6b4a; /* Thay sang xanh #1e6b4a */
+    --accent-color: #e74c3c;
+    --light-color: #000;
+    --dark-color: #2c3e50;
+    --success-color: #2ecc71;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+.lilita-one-regular {
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.popup-window {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 10px;
+    background: white;
+    border-radius: 12px; /* Tăng border-radius để bo góc rõ hơn */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Thêm border nhẹ để nổi bật đường bo góc */
+    box-shadow: var(--shadow);
+    width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.popup input[type="checkbox"]:checked~.popup-window {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.popup-window legend {
+    padding: 1rem 1rem 0.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+.popup-window ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup-window li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.popup-window li:last-child {
+    border-bottom: none;
+}
+
+.popup-window button,
+.popup-window .btn-view-profile,
+.popup-window .btn-logout {
+    background: none;
+    border: none;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    text-align: left;
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: var(--transition);
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 6px; /* Thêm border-radius cho button để bo góc khi hover */
+}
+
+.popup-window button:hover,
+.popup-window .btn-custom:hover {
+    background-color: #f8f9fa;
+    color: var(--secondary-color);
+}
+
+.popup-window .btn-logout {
+    color: var(--accent-color);
+}
+
+.popup-window .btn-logout:hover {
+    background-color: #ff0000;
+    color: var(--accent-color);
+}
+
+.popup-window hr {
+    margin: 0.5rem 0;
+    border-color: #f0f0f0;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-custom .navbar-nav {
+        margin-top: 1rem;
+    }
+
+    .navbar-custom .nav-link {
+        margin: 0.125rem 0;
+        padding: 0.75rem 1rem;
+    }
+
+    .navbar-custom .nav-link.active-link::after {
+        display: none;
+    }
+
+    .navbar-custom .dropdown-menu {
+        margin-left: 1rem;
+        width: calc(100% - 2rem);
+    }
+
+    .navbar-right {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .popup-window {
+        position: static;
+        width: 100%;
+        margin-top: 1rem;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: transparent;
+        border-radius: 12px; /* Giữ border-radius trong mobile để bo góc vẫn hiển thị */
+        border: 1px solid rgba(255, 255, 255, 0.1); /* Thêm border nhẹ cho mobile để bo góc nổi bật */
+    }
+
+    .popup-window legend,
+    .popup-window button,
+    .popup-window .btn-view-profile,
+    .popup-window .btn-logout {
+        color: var(--light-color);
+        background: transparent;
+    }
+
+    .popup-window button:hover,
+    .popup-window .btn-view-profile:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .popup-window .btn-logout:hover {
+        background: rgba(231, 76, 60, 0.2);
+    }
+
+    .popup-window hr {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.navbar-custom {
+    background: linear-gradient(145deg, #ffffff, #e6faff, #ffffff00) !important; /* Gradient tông xanh, giữ nguyên vì đã thay trước, nhưng đảm bảo không có vàng */
+    border-radius: 0 0 120px 120px; /* Tăng border-radius nhẹ để bo góc mượt hơn ở dưới */
+    box-shadow: 0 15px 35px rgba(46, 123, 161, 0.15); /* Thay shadow sang #1e6b4a */
+    border: 2px solid rgba(46, 123, 161, 0.3); /* Thay border sang #1e6b4a */
+    margin: 0px 70px 0px 70px;
+    position: sticky;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.main-header {
+    background: #1e6b4a; /* Thay background sang #1e6b4a */
+    background: linear-gradient(90deg, rgb(74, 99, 89) 0%, rgba(7, 29, 21, 0.8) 50%, rgba(152, 160, 163, 0.5) 100%); /* Gradient #1e6b4a */
+    padding: 15px 0;
+    color: #2c3e50;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    top: 0;
+    border-bottom-left-radius: 120px; /* Tăng để khớp với navbar-custom */
+    border-bottom-right-radius: 120px;
+
+    .user-info span a {
+        color: #2C3E50;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .nav-logo {
+        text-align: center;
+        color: #2C3E50;
+        font-size: 25px;
+        height: 25px;
+    }
+}
+
+.user-avatar {
+    border: 4px solid #1e6b4a !important; /* Thay border avatar sang #1e6b4a */
+    transition: transform 0.2s ease-in-out;
+    border-radius: 50%; /* Đảm bảo bo góc tròn cho avatar */
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+}
+
+.dropdown-menu {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px; /* Tăng border-radius để bo góc rõ hơn */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 1030;
+}
+
+.btn-drop-custom {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%; /* Đã là 50%, giữ nguyên để bo góc tròn hoàn hảo */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    width: 46px;
+    height: 46px;
+    border: 1px solid #1e6b4a; /* Thay border button sang #1e6b4a */
+    color: #1e6b4a; /* Thay color sang #1e6b4a */
+    border-radius: 50%;
+
+    &:hover {
+        background: #1e6b4a; /* Thay hover sang #1e6b4a */
+        color: #fff;
+    }
+}
+
+.dropdown-menu a.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    transition: background 0.2s;
+    border-radius: 8px; /* Thêm border-radius cho item để bo góc khi hover */
+}
+
+.dropdown-menu a.dropdown-item:hover {
+    background: #1e6b4a !important; /* Thay hover item sang #1e6b4a */
+    color: #fff !important;
+}
+
+.dropdown-toggle.btn {
+    padding: 6px 8px;
+    line-height: 1;
+    border-radius: 12px; /* Thêm border-radius cho toggle button */
+}
