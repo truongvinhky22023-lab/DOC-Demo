@@ -9,7 +9,8 @@ const XLSX = require('xlsx');
   
 const app = express();
 const PORT = 3000;
-
+// ĐẶT LÊN ĐẦU FILE app.js LUÔN NHÉ!
+process.env.TZ = 'Asia/Ho_Chi_Minh';
 // ====================== CẤU HÌNH CƠ BẢN ======================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,7 +27,7 @@ app.use(session({
 }));
 
 const DB_FILE = "./database.json";
-
+ 
 // ====================== CẤU HÌNH MULTER (AVATAR) ======================
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -440,6 +441,8 @@ app.get("/attendance", requireAuth, (req, res) => {
   });
 });
 
+// FIX MÚI GIỜ VIỆT NAM MÃI MÃI
+process.env.TZ = 'Asia/Ho_Chi_Minh';
 // ON / OFF DUTY
 app.post("/attendance/check", requireAuth, (req, res) => {
   const db = loadDB();
