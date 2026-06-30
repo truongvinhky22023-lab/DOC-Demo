@@ -11,24 +11,7 @@
       "avatar": "",
       "salaryRate": 20000,
       "careerTotal": 0,
-      "attendance": [
-        {
-          "date": "6/30/2026",
-          "onTime": "12:20:34 PM - 6/30",
-          "offTime": "12:32:42 PM - 6/30",
-          "hours": 0,
-          "salary": 0,
-          "status": "Ca dưới 1 tiếng – không tính lương"
-        },
-        {
-          "date": "6/30/2026",
-          "onTime": "12:38:02 PM - 6/30",
-          "offTime": null,
-          "hours": 0,
-          "salary": 0,
-          "status": "Đang On-duty"
-        }
-      ],
+      "attendance": [],
       "monthlyHistory": []
     }
   ],
