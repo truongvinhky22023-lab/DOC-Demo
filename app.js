@@ -2421,3 +2421,39 @@ client.on('messageCreate', async (message) => {
         }
     }
 });
+// --- PHẦN DISCORD BOT ---
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMembers]
+});
+
+let discordActivities = {}; // Biến tạm lưu: { 'discord_id': 'Tên Game' }
+
+client.on('presenceUpdate', (old, n) => {
+    if (!n || !n.userId) return;
+    const act = n.activities[0];
+    discordActivities[n.userId] = act ? act.name : "Đang rảnh";
+});
+
+// Route này để Web gọi vào lấy dữ liệu
+app.get('/api/discord-status', (req, res) => {
+    res.json(discordActivities);
+});
+
+client.login('');
+  // -----------------------
+  // Lương sẽ tự động tính lại khi render hoặc gọi API history
+  res.json({ success: true, message: "Cập nhật chức vụ thành công" });
+});
+// Nếu dùng router riêng thì mount nó:
+app.use('/', router); // hoặc app.use('/admin', adminRouter);
+});
+    console.log('=== DEBUG PAYROLL ===');
+console.log('monthlyTotal:', monthlyTotal);
+console.log('heSoLuong:', heSoLuong);
+console.log('user:', targetUser?.username || 'không có user');
+});
+});
+
+
+
